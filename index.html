@@ -3,226 +3,546 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Complete Finance Guide with Detailed Lessons and Calculators</title>
+<title>Ultimate Finance Course & Tools</title>
 <style>
+  /* Reset and basics */
+  * {
+    box-sizing: border-box;
+  }
   body {
-    font-family: Arial, sans-serif;
-    line-height: 1.7;
-    margin: 0;
-    padding: 0 20px 40px;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-    background: #f9f9f9;
-    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0; padding: 0;
+    background: #f4f7fa;
+    color: #222;
+    line-height: 1.6;
   }
-  h1, h2, h3 {
-    color: #2c3e50;
+  a {
+    text-decoration: none;
+    color: #2980b9;
   }
-  h1 {
-    margin-top: 40px;
-    margin-bottom: 20px;
+  a:hover {
+    color: #1c5980;
+  }
+  /* Layout */
+  header {
+    background: #2980b9;
+    color: white;
+    padding: 1rem 2rem;
     text-align: center;
   }
-  h2 {
-    margin-top: 35px;
-    margin-bottom: 15px;
-    border-bottom: 2px solid #2980b9;
-    padding-bottom: 5px;
+  header h1 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 1.8rem;
   }
-  h3 {
-    margin-top: 20px;
-    margin-bottom: 10px;
+  nav {
+    background: #ffffff;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 0.5rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
   }
-  p {
-    margin-bottom: 18px;
+  nav a {
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
   }
-  ul {
-    margin-bottom: 20px;
-    padding-left: 20px;
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 25px;
-  }
-  table, th, td {
-    border: 1px solid #bbb;
-  }
-  th, td {
-    padding: 8px 12px;
-    text-align: left;
-  }
-  th {
-    background-color: #2980b9;
+  nav a.active, nav a:hover {
+    background: #2980b9;
     color: white;
   }
-  label {
-    display: block;
-    margin-top: 8px;
+
+  main {
+    max-width: 900px;
+    margin: 2rem auto 4rem;
+    padding: 0 1rem;
   }
-  input[type="number"] {
+  section.module {
+    margin-bottom: 3rem;
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  }
+  section.module h2 {
+    margin-top: 0;
+    color: #1a3d7c;
+    border-bottom: 3px solid #2980b9;
+    padding-bottom: 6px;
+    font-weight: 700;
+  }
+  ul.lesson-list {
+    list-style: none;
+    padding-left: 0;
+  }
+  ul.lesson-list li {
+    margin: 0.6rem 0;
+  }
+  ul.lesson-list li a {
+    font-size: 1.1rem;
+  }
+
+  /* Lesson detail styles */
+  #lesson-detail {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-top: 2rem;
+  }
+  #lesson-detail h3 {
+    margin-top: 0;
+    color: #205375;
+  }
+  #lesson-detail .objective {
+    background: #d9e8f5;
+    border-left: 5px solid #2980b9;
+    padding: 1rem;
+    margin: 1rem 0;
+    font-style: italic;
+    color: #144a7a;
+  }
+  #lesson-detail p {
+    margin-bottom: 1rem;
+  }
+  #lesson-detail ul.keypoints {
+    list-style: disc inside;
+    margin-bottom: 1rem;
+  }
+  #lesson-detail img.lesson-image {
+    max-width: 100%;
+    margin: 1rem 0;
+    border-radius: 6px;
+  }
+
+  /* Formula box */
+  .formula-box {
+    background: #eef6fb;
+    border-left: 4px solid #2980b9;
+    padding: 1rem;
+    font-family: monospace;
+    font-weight: 600;
+    margin: 1rem 0 2rem;
+    color: #12547a;
+  }
+
+  /* Calculator section */
+  section#tools {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  }
+  section#tools h2 {
+    color: #1a3d7c;
+    border-bottom: 3px solid #2980b9;
+    padding-bottom: 6px;
+    font-weight: 700;
+  }
+  .calculator {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem 1.5rem 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+    background: #f9fbfd;
+  }
+  .calculator h3 {
+    margin-top: 0;
+    color: #205375;
+  }
+  .calculator label {
+    display: block;
+    margin: 0.5rem 0 0.3rem;
+    font-weight: 600;
+  }
+  .calculator input[type="number"] {
     width: 100%;
-    max-width: 150px;
-    padding: 6px;
-    margin-top: 4px;
-    margin-bottom: 12px;
+    max-width: 200px;
+    padding: 0.3rem 0.5rem;
     border: 1px solid #ccc;
     border-radius: 4px;
   }
-  button {
-    background-color: #2980b9;
+  .calculator button {
+    background: #2980b9;
     color: white;
     border: none;
-    padding: 8px 16px;
     border-radius: 4px;
+    padding: 0.6rem 1.2rem;
+    margin-top: 1rem;
     cursor: pointer;
-    margin-top: 4px;
+    font-weight: 700;
   }
-  button:hover {
-    background-color: #1c5980;
+  .calculator button:hover {
+    background: #1c5980;
   }
-  .calculator {
-    background: white;
-    padding: 15px 20px 20px;
-    margin-bottom: 40px;
-    border-radius: 6px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  .calculator .result {
+    margin-top: 1rem;
+    font-weight: 700;
+    color: #1a3d7c;
   }
-  #result {
-    margin-top: 12px;
-    font-weight: bold;
-    color: #2c3e50;
-  }
-  footer {
-    text-align: center;
-    font-size: 0.9em;
-    color: #777;
-    margin: 40px 0 20px 0;
-  }
+
+  /* Responsive */
   @media (max-width: 600px) {
-    body {
-      padding: 10px;
+    nav {
+      flex-wrap: wrap;
+    }
+    main {
+      margin: 1rem auto;
+      padding: 0 0.5rem;
+    }
+    section.module, section#tools {
+      padding: 1rem 1rem;
+    }
+    .calculator input[type="number"] {
+      max-width: 100%;
     }
   }
 </style>
 </head>
 <body>
 
-<h1>Complete Finance Guide</h1>
+<header>
+  <h1>Ultimate Finance Course & Tools</h1>
+</header>
 
-<p>Welcome to your comprehensive resource for understanding finance — whether you’re managing your personal money, investing for the future, or learning the ropes of business finance. This guide will walk you through fundamental concepts, practical advice, and essential tools you need to confidently handle your financial life.</p>
+<nav>
+  <a href="#home" class="active" data-link="home">Home</a>
+  <a href="#modules" data-link="modules">Modules</a>
+  <a href="#tools" data-link="tools">Tools & Calculators</a>
+</nav>
 
-<h2>1. Personal Finance Lessons &amp; Tips</h2>
+<main>
 
-<h3>Budgeting and Expense Tracking</h3>
-<p>Creating and maintaining a budget is the cornerstone of sound personal finance management. Budgeting involves recording your income and categorizing your expenses to understand where your money goes each month. Many people underestimate how small daily expenses add up over time, leading to unnecessary financial stress. By tracking your spending meticulously—whether through simple spreadsheets, pen and paper, or budgeting apps—you gain clarity on your financial habits. This clarity empowers you to make intentional decisions about where to cut back or how to allocate more money towards savings or debt repayment. Consistently budgeting helps prevent overspending, encourages mindful purchases, and ultimately builds a habit of financial responsibility.</p>
+  <!-- Home Section -->
+  <section id="home" class="module">
+    <h2>Welcome to Your Complete Finance Learning Platform</h2>
+    <p>
+      Master personal finance, investing, corporate finance, and more with clear lessons, visual explanations, and interactive calculators.
+    </p>
+    <p>Use the navigation links above to explore:</p>
+    <ul>
+      <li><strong>Modules:</strong> Organized lessons from foundational concepts to advanced topics.</li>
+      <li><strong>Tools & Calculators:</strong> Practical calculators for all financial scenarios, with formulas explained.</li>
+    </ul>
+    <p>Start learning today and take control of your financial future!</p>
+  </section>
 
-<h3>Saving Strategies</h3>
-<p>Saving money is not just about setting aside what’s left at the end of the month; it requires deliberate planning. The most effective saving strategy is to “pay yourself first”—meaning, allocate a portion of your income to savings before spending on anything else. Automating your savings through bank transfers can make this process effortless and ensure consistency. Having a well-funded emergency fund, ideally covering three to six months of living expenses, protects you from unexpected financial shocks such as job loss or medical emergencies. Besides emergency savings, think about long-term goals like buying a home, education, or retirement, and create dedicated accounts for these. Prioritize saving high-interest debt payoffs to free up more money for future saving and investing.</p>
+  <!-- Modules Section -->
+  <section id="modules" class="module">
+    <h2>Finance Course Modules</h2>
+    <p>Select a module below to explore lessons.</p>
+    <ul id="module-list" class="lesson-list">
+      <!-- Filled dynamically -->
+    </ul>
 
-<h3>Understanding and Managing Debt</h3>
-<p>Debt can be a double-edged sword. While certain debts like student loans or mortgages can be considered “good debt” because they finance assets or education that potentially increase your earning power, “bad debt” such as credit card balances at high interest rates often drains your finances without long-term benefit. It’s crucial to understand the interest rates, terms, and fees associated with your debts. Focus on paying down high-interest debts aggressively to reduce overall costs. Avoid taking on new debt for depreciating assets or non-essential purchases. Using strategies like the debt snowball (paying smallest debts first) or debt avalanche (paying highest interest rate debts first) can keep you motivated and efficient in becoming debt-free. Managing debt wisely improves your credit score and financial freedom.</p>
+    <div id="lesson-detail" style="display:none;">
+      <!-- Lesson content loaded here -->
+    </div>
+  </section>
 
-<h3>Credit Score Basics</h3>
-<p>Your credit score is a three-digit number that reflects your creditworthiness and plays a pivotal role in your financial life. Lenders use this score to decide whether to approve loans or credit and what interest rates to offer. Factors influencing your credit score include your payment history, total debt, length of credit history, types of credit, and recent credit inquiries. Paying bills on time consistently is the single most important factor. Keeping your credit card balances low relative to your limits (below 30%) helps maintain a healthy utilization ratio. Avoid opening many new accounts rapidly, as this can signal risk. Monitoring your credit report regularly helps catch errors or fraudulent activity early. Building and maintaining a strong credit score opens doors to better financing opportunities and savings.</p>
+  <!-- Tools Section -->
+  <section id="tools">
+    <h2>Finance Calculators</h2>
 
-<h2>2. Investing Lessons &amp; Tips</h2>
+    <!-- Calculator 1: Compound Interest -->
+    <div class="calculator" id="calc-compound-interest">
+      <h3>Compound Interest Calculator</h3>
+      <div class="formula-box">Formula: A = P × (1 + r/n)^(nt)</div>
+      <label for="principal">Principal (P):</label>
+      <input type="number" id="principal" min="0" step="0.01" placeholder="e.g., 1000" />
+      <label for="rate">Annual Interest Rate (r) in %:</label>
+      <input type="number" id="rate" min="0" step="0.01" placeholder="e.g., 5" />
+      <label for="timesCompounded">Times Compounded per Year (n):</label>
+      <input type="number" id="timesCompounded" min="1" step="1" placeholder="e.g., 4" />
+      <label for="years">Number of Years (t):</label>
+      <input type="number" id="years" min="0" step="0.1" placeholder="e.g., 10" />
+      <button onclick="calculateCompoundInterest()">Calculate</button>
+      <div class="result" id="compoundInterestResult"></div>
+    </div>
 
-<h3>Understanding Different Investment Types</h3>
-<p>Investing involves committing your money to assets with the expectation of generating returns over time. There are many types of investments, each with unique risks and benefits. Stocks represent ownership in companies and offer potentially high returns but come with market volatility. Bonds are loans to governments or corporations that pay interest and are generally less risky than stocks. Mutual funds pool money from many investors to buy a diversified portfolio, while ETFs (Exchange-Traded Funds) trade like stocks but offer diversification similar to mutual funds. Real estate investing includes owning property or real estate investment trusts (REITs). Understanding these options helps you choose investments aligned with your risk tolerance, time horizon, and financial goals.</p>
+    <!-- Calculator 2: Loan Payment -->
+    <div class="calculator" id="calc-loan-payment">
+      <h3>Loan Payment Calculator</h3>
+      <div class="formula-box">
+        Formula: M = P × [r(1 + r)^n] / [(1 + r)^n − 1] <br />
+        (Monthly payment M, principal P, monthly rate r, total payments n)
+      </div>
+      <label for="loanAmount">Loan Amount (P):</label>
+      <input type="number" id="loanAmount" min="0" step="0.01" placeholder="e.g., 20000" />
+      <label for="annualRateLoan">Annual Interest Rate in %:</label>
+      <input type="number" id="annualRateLoan" min="0" step="0.01" placeholder="e.g., 5" />
+      <label for="loanTermMonths">Loan Term (months):</label>
+      <input type="number" id="loanTermMonths" min="1" step="1" placeholder="e.g., 60" />
+      <button onclick="calculateLoanPayment()">Calculate</button>
+      <div class="result" id="loanPaymentResult"></div>
+    </div>
 
-<h3>Risk and Diversification</h3>
-<p>Risk is inherent in all investing; however, managing risk effectively is key to preserving and growing your wealth. Diversification—spreading investments across different asset classes, industries, and geographic regions—reduces the impact of a poor-performing investment on your overall portfolio. For example, owning stocks in multiple sectors or combining stocks with bonds can smooth out volatility. While diversification cannot eliminate risk completely, it improves the probability of more consistent returns. It’s also important to reassess and rebalance your portfolio periodically to maintain your desired risk level as markets fluctuate and your goals evolve.</p>
+    <!-- Calculator 3: Simple Interest -->
+    <div class="calculator" id="calc-simple-interest">
+      <h3>Simple Interest Calculator</h3>
+      <div class="formula-box">Formula: I = P × r × t</div>
+      <label for="simplePrincipal">Principal (P):</label>
+      <input type="number" id="simplePrincipal" min="0" step="0.01" placeholder="e.g., 1000" />
+      <label for="simpleRate">Annual Interest Rate (r) in %:</label>
+      <input type="number" id="simpleRate" min="0" step="0.01" placeholder="e.g., 4" />
+      <label for="simpleTime">Time (years):</label>
+      <input type="number" id="simpleTime" min="0" step="0.1" placeholder="e.g., 3" />
+      <button onclick="calculateSimpleInterest()">Calculate</button>
+      <div class="result" id="simpleInterestResult"></div>
+    </div>
 
-<h3>Time Horizon and Compounding</h3>
-<p>One of the most powerful concepts in investing is compound interest, which means earning returns not just on your initial investment but also on accumulated earnings over time. The effect of compounding grows exponentially the longer you invest, which is why starting early is so critical. For example, investing $1,000 annually starting at age 25 can grow substantially more than starting at age 35, even if the amount invested later is larger. Understanding your investment time horizon helps in choosing appropriate assets—longer horizons typically allow for more risk-taking with greater potential returns, while shorter horizons call for safer, more liquid investments.</p>
+    <!-- Calculator 4: Savings Goal -->
+    <div class="calculator" id="calc-savings-goal">
+      <h3>Savings Goal Calculator</h3>
+      <div class="formula-box">Formula: FV = P × [( (1 + r)^t − 1 ) / r]</div>
+      <label for="monthlyDeposit">Monthly Deposit (P):</label>
+      <input type="number" id="monthlyDeposit" min="0" step="0.01" placeholder="e.g., 500" />
+      <label for="goalRate">Annual Interest Rate (r) in %:</label>
+      <input type="number" id="goalRate" min="0" step="0.01" placeholder="e.g., 6" />
+      <label for="goalYears">Number of Years (t):</label>
+      <input type="number" id="goalYears" min="0" step="0.1" placeholder="e.g., 10" />
+      <button onclick="calculateSavingsGoal()">Calculate</button>
+      <div class="result" id="savingsGoalResult"></div>
+    </div>
 
-<h2>3. Financial Markets and Instruments</h2>
+    <!-- More calculators can be added here similarly -->
 
-<h3>How Markets Work</h3>
-<p>Financial markets are platforms where buyers and sellers trade securities like stocks, bonds, and derivatives. These markets provide liquidity, meaning you can buy or sell assets relatively quickly. They also facilitate price discovery, helping to establish the value of securities based on supply and demand. Markets can be volatile and influenced by economic data, corporate performance, political events, and investor sentiment. Understanding market mechanisms, including how exchanges operate and the role of market makers, helps investors avoid panic selling or impulsive buying. Staying informed through reliable news sources and focusing on long-term trends rather than daily fluctuations is a prudent strategy.</p>
+  </section>
 
-<h3>Basic Financial Instruments</h3>
-<p>There are several types of financial instruments you should understand before investing. Stocks represent shares of company ownership, offering voting rights and dividends. Bonds are debt securities where you lend money to an issuer in exchange for interest payments. Options and futures are derivatives giving the right or obligation to buy/sell assets at predetermined prices, used for speculation or hedging. Mutual funds and ETFs pool investors’ money to buy diversified portfolios managed by professionals. Knowing how these instruments work, their risks, and tax implications allows you to build a well-informed investment strategy.</p>
+</main>
 
-<h2>4. Risk Management and Insurance</h2>
+<script>
+  // Navigation active link toggling
+  const navLinks = document.querySelectorAll('nav a');
+  const sections = {
+    home: document.getElementById('home'),
+    modules: document.getElementById('modules'),
+    tools: document.getElementById('tools')
+  };
 
-<h3>Importance of Insurance</h3>
-<p>Insurance is a financial safety net that protects you and your assets from significant losses caused by accidents, illness, death, or property damage. Without adequate insurance, unexpected events could deplete your savings or push you into debt. Types of insurance include health, auto, home/renters, life, and disability insurance. Choosing the right policies means balancing premium costs against coverage needs. Regularly reviewing and comparing policies ensures you get the best value. In essence, insurance transfers the financial risk of large, unpredictable losses to an insurer, allowing you to maintain stability and peace of mind.</p>
+  navLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = link.getAttribute('data-link');
+      // Scroll to section
+      sections[target].scrollIntoView({ behavior: 'smooth' });
+      // Toggle active class
+      navLinks.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+    });
+  });
 
-<h3>Managing Financial Risk</h3>
-<p>Financial risk comes in many forms — market risk, credit risk, inflation risk, and liquidity risk, among others. Managing these risks requires a clear understanding of your exposure and available strategies. Diversification, as mentioned, helps reduce market risk. Purchasing insurance mitigates risk from life’s uncertainties. Keeping an emergency fund improves liquidity risk management. Understanding the tradeoff between risk and return is vital: higher potential returns usually come with higher risk. Developing a risk management plan aligned with your financial goals and comfort level helps you stay resilient through uncertain times.</p>
+  // Course Data Structure
+  const courseModules = [
+    {
+      id: 'mod1',
+      title: 'Module 1: Foundations of Personal Finance',
+      description: 'Laying the groundwork for managing your money effectively.',
+      lessons: [
+        {
+          id: 'mod1-les1',
+          title: 'Understanding Your Financial Snapshot',
+          objective: 'By the end of this lesson, you will be able to understand and calculate your income, expenses, assets, liabilities, and net worth.',
+          content: `
+            <p>Your financial snapshot is a clear picture of your current financial status. It includes:</p>
+            <ul>
+              <li><strong>Income:</strong> Money you receive regularly.</li>
+              <li><strong>Expenses:</strong> Money you spend.</li>
+              <li><strong>Assets:</strong> What you own.</li>
+              <li><strong>Liabilities:</strong> What you owe.</li>
+              <li><strong>Net Worth:</strong> Assets minus liabilities.</li>
+            </ul>
+            <p>Tracking these components helps you make smart financial decisions and plan effectively.</p>
+            <img class="lesson-image" src="https://i.imgur.com/2TpXjIr.png" alt="Personal Balance Sheet Infographic" />
+          `,
+          keypoints: [
+            'Know your net worth regularly.',
+            'Track income and expenses to manage cash flow.',
+            'Use a personal balance sheet as a visual tool.'
+          ]
+        },
+        {
+          id: 'mod1-les2',
+          title: 'Budgeting & Cash Flow Management',
+          objective: 'By the end of this lesson, you will know how to create a budget, track spending, and manage debt effectively.',
+          content: `
+            <p>Budgeting means planning how to allocate your income to different expense categories.</p>
+            <p>Popular methods include:</p>
+            <ul>
+              <li><strong>50/30/20 rule:</strong> 50% needs, 30% wants, 20% savings/debt.</li>
+              <li><strong>Envelope system:</strong> Use cash envelopes for different categories.</li>
+              <li><strong>Zero-based budgeting:</strong> Every dollar assigned a job.</li>
+            </ul>
+            <p>Managing cash flow ensures you don’t spend more than you earn and can handle unexpected expenses.</p>
+            <img class="lesson-image" src="https://i.imgur.com/JxA4Lr0.png" alt="Budgeting Diagram" />
+          `,
+          keypoints: [
+            'Choose a budgeting method that fits your lifestyle.',
+            'Track all spending to avoid surprises.',
+            'Adjust budget regularly as income or expenses change.'
+          ]
+        },
+        // More lessons can be added here...
+      ]
+    },
+    {
+      id: 'mod2',
+      title: 'Module 2: Introduction to Investing',
+      description: 'Making your money work for you.',
+      lessons: [
+        {
+          id: 'mod2-les1',
+          title: 'Why Invest? Inflation & Compounding',
+          objective: 'Understand the importance of investing to beat inflation and grow wealth through compounding interest.',
+          content: `
+            <p>Inflation reduces the purchasing power of money over time.</p>
+            <p>Investing helps your money grow faster than inflation.</p>
+            <p><strong>Compounding interest</strong> means earning interest on both your original amount and accumulated interest.</p>
+            <img class="lesson-image" src="https://i.imgur.com/8iGk7XU.png" alt="Compounding Interest Graph" />
+          `,
+          keypoints: [
+            'Start investing early to maximize compounding benefits.',
+            'Small, regular investments grow significantly over time.',
+            'Understand inflation and its impact on savings.'
+          ]
+        },
+        // More lessons...
+      ]
+    },
+    // Add other modules similarly...
+  ];
 
-<h2>5. Taxes and Legal Considerations</h2>
+  // Populate modules list
+  const moduleListEl = document.getElementById('module-list');
+  const lessonDetailEl = document.getElementById('lesson-detail');
 
-<h3>Basics of Tax Planning</h3>
-<p>Taxes impact virtually all aspects of personal finance, from income and investments to property and inheritance. Effective tax planning aims to minimize tax liability within the law, thereby maximizing your net income and wealth accumulation. Common strategies include contributing to tax-advantaged retirement accounts, claiming eligible deductions and credits, and timing income or investments to reduce tax burden. Staying aware of current tax laws and deadlines prevents costly penalties. When your financial situation becomes complex, consulting a tax professional can help you navigate the rules and optimize your tax position.</p>
+  function renderModules() {
+    moduleListEl.innerHTML = '';
+    courseModules.forEach(module => {
+      const li = document.createElement('li');
+      li.innerHTML = `<strong>${module.title}</strong> - ${module.description}
+        <ul class="lesson-list" style="margin-top: 0.5rem; margin-left: 1rem;">
+          ${module.lessons.map(lesson => `<li><a href="#" data-lesson="${lesson.id}">${lesson.title}</a></li>`).join('')}
+        </ul>
+      `;
+      moduleListEl.appendChild(li);
+    });
+    // Add click listeners on lessons
+    const lessonLinks = moduleListEl.querySelectorAll('a[data-lesson]');
+    lessonLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const lessonId = link.getAttribute('data-lesson');
+        showLessonDetail(lessonId);
+      });
+    });
+  }
 
-<h3>Legal and Regulatory Awareness</h3>
-<p>The financial world is governed by laws and regulations designed to protect consumers, ensure fair markets, and prevent fraud. Being informed about your legal rights and obligations helps you avoid scams and penalties. Regulations cover areas like securities trading, lending practices, insurance policies, and consumer protections. For example, understanding disclosures in loan agreements or investment prospectuses ensures you make informed decisions. Regularly checking resources from government agencies such as the SEC or Consumer Financial Protection Bureau empowers you to stay compliant and secure in your financial dealings.</p>
+  function showLessonDetail(lessonId) {
+    let foundLesson = null;
+    for (const mod of courseModules) {
+      const lesson = mod.lessons.find(l => l.id === lessonId);
+      if (lesson) {
+        foundLesson = lesson;
+        break;
+      }
+    }
+    if (!foundLesson) {
+      lessonDetailEl.style.display = 'none';
+      return;
+    }
+    lessonDetailEl.style.display = 'block';
+    lessonDetailEl.innerHTML = `
+      <h3>${foundLesson.title}</h3>
+      <div class="objective">Objective: ${foundLesson.objective}</div>
+      ${foundLesson.content}
+      <h4>Key Takeaways:</h4>
+      <ul class="keypoints">${foundLesson.keypoints.map(kp => `<li>${kp}</li>`).join('')}</ul>
+      <button onclick="scrollToTop()">Back to Modules</button>
+    `;
+  }
 
-<h2>6. Corporate Finance Essentials (for Business Sections)</h2>
+  function scrollToTop() {
+    lessonDetailEl.style.display = 'none';
+    moduleListEl.scrollIntoView({ behavior: 'smooth' });
+  }
 
-<h3>Capital Management</h3>
-<p>For businesses, managing capital means balancing how much money to raise through debt (loans, bonds) versus equity (stocks) to fund operations and growth. The cost of capital — the required return necessary to make a capital budgeting project worthwhile — influences investment decisions. Efficient capital management optimizes financial performance, minimizes costs, and preserves flexibility. Business owners must carefully plan capital structure to support day-to-day operations and strategic initiatives without jeopardizing solvency.</p>
+  renderModules();
 
-<h3>Financial Statements Analysis</h3>
-<p>Financial statements are formal records of a business’s financial activities. The balance sheet shows assets, liabilities, and equity at a specific point, the income statement summarizes revenues and expenses over a period, and the cash flow statement reports actual cash inflows and outflows. Understanding these documents enables business owners, investors, and lenders to assess profitability, liquidity, and financial stability. Ratio analysis, such as calculating current ratio, debt-to-equity, and return on equity, provides insights into operational efficiency and risk, guiding smarter financial decisions.</p>
+  // Calculators JavaScript
 
-<h2>7. Recommended Finance Tools for Website Visitors</h2>
+  function calculateCompoundInterest() {
+    const P = parseFloat(document.getElementById('principal').value);
+    const r = parseFloat(document.getElementById('rate').value) / 100;
+    const n = parseInt(document.getElementById('timesCompounded').value);
+    const t = parseFloat(document.getElementById('years').value);
 
-<table>
-  <thead>
-    <tr>
-      <th>Tool Type</th>
-      <th>Purpose</th>
-      <th>Examples</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Budgeting Apps</td>
-      <td>Track spending &amp; create budgets</td>
-      <td>Mint, YNAB, PocketGuard</td>
-    </tr>
-    <tr>
-      <td>Investment Platforms</td>
-      <td>Buy/sell investments</td>
-      <td>Robinhood, E*TRADE, Fidelity</td>
-    </tr>
-    <tr>
-      <td>Portfolio Trackers</td>
-      <td>Monitor investment performance</td>
-      <td>Personal Capital, Morningstar</td>
-    </tr>
-    <tr>
-      <td>Credit Monitoring</td>
-      <td>Check and improve credit scores</td>
-      <td>Credit Karma, Experian</td>
-    </tr>
-    <tr>
-      <td>Tax Software</td>
-      <td>File taxes and optimize returns</td>
-      <td>TurboTax, H&amp;R Block</td>
-    </tr>
-    <tr>
-      <td>Insurance Comparison</td>
-      <td>Find best insurance rates &amp; coverage</td>
-      <td>Policygenius, NerdWallet</td>
-    </tr>
-    <tr>
-      <td>Financial Calculators</td>
-      <td>Calculate interest, retirement needs, debt</td>
-      <td>Bankrate, SmartAsset calculators</td>
-    </tr>
-  </tbody>
-</table>
+    if (isNaN(P) || isNaN(r) || isNaN(n) || isNaN(t)) {
+      alert('Please fill in all fields with valid numbers.');
+      return;
+    }
 
-<h2>8. Practical Finance Tips for Website Visitors</h2>
+    const A = P * Math.pow((1 + r / n), n * t);
+    document.getElementById('compoundInterestResult').textContent = `Future Value (A) = $${A.toFixed(2)}`;
+  }
 
-<ul>
-  <li><strong>Start Small but Start Early:</strong> Time is the most powerful factor in wealth building.</li>
-  <li><strong>Automate Finances:</strong> Automate bill payments, savings, and investments to avoid missed deadlines and procrastination.</li>
-  <li><strong>Avoid Lifestyle Inflation:</strong> Increase savings proportionally as your income grows instead of just spending more.</li>
-  <li
+  function calculateLoanPayment() {
+    const P = parseFloat(document.getElementById('loanAmount').value);
+    const annualRate = parseFloat(document.getElementById('annualRateLoan').value);
+    const n = parseInt(document.getElementById('loanTermMonths').value);
+
+    if (isNaN(P) || isNaN(annualRate) || isNaN(n)) {
+      alert('Please fill in all fields with valid numbers.');
+      return;
+    }
+
+    const r = (annualRate / 100) / 12; // monthly interest rate
+    if (r === 0) {
+      // no interest loan
+      const M = P / n;
+      document.getElementById('loanPaymentResult').textContent = `Monthly Payment (M) = $${M.toFixed(2)}`;
+      return;
+    }
+    const M = P * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+    document.getElementById('loanPaymentResult').textContent = `Monthly Payment (M) = $${M.toFixed(2)}`;
+  }
+
+  function calculateSimpleInterest() {
+    const P = parseFloat(document.getElementById('simplePrincipal').value);
+    const r = parseFloat(document.getElementById('simpleRate').value) / 100;
+    const t = parseFloat(document.getElementById('simpleTime').value);
+
+    if (isNaN(P) || isNaN(r) || isNaN(t)) {
+      alert('Please fill in all fields with valid numbers.');
+      return;
+    }
+
+    const I = P * r * t;
+    document.getElementById('simpleInterestResult').textContent = `Simple Interest (I) = $${I.toFixed(2)}`;
+  }
+
+  function calculateSavingsGoal() {
+    const P = parseFloat(document.getElementById('monthlyDeposit').value);
+    const rAnnual = parseFloat(document.getElementById('goalRate').value) / 100;
+    const t = parseFloat(document.getElementById('goalYears').value);
+
+    if (isNaN(P) || isNaN(rAnnual) || isNaN(t)) {
+      alert('Please fill in all fields with valid numbers.');
+      return;
+    }
+
+    const rMonthly = rAnnual / 12;
+    const n = t * 12;
+    // FV = P * [ ((1 + r)^n -1) / r ]
+    const FV = P * ( (Math.pow(1 + rMonthly, n) - 1) / rMonthly );
+    document.getElementById('savingsGoalResult').textContent = `Future Value (FV) = $${FV.toFixed(2)}`;
+  }
+</script>
+
+</body>
+</html>
