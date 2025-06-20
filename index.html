@@ -698,4 +698,2036 @@
           <button onclick="calculateProfitMargin()">Calculate</button>
           <div class="result" id="profitMarginResult"></div>
         </div>
-      </section>  
+      </section>      
+      const quizData = {
+        "mod1": {
+          lessons: {
+            "mod1-les1": {
+              title: "Understanding Your Financial Snapshot",
+              questions: [
+                {
+                  type: "multiple-choice",
+                  question: "Which of the following best describes your net worth?",
+                  options: [
+                    "Total income earned in a year",
+                    "Total assets minus total liabilities",
+                    "Total expenses in a month",
+                    "Total debts owed"
+                  ],
+                  answer: 1
+                },
+                {
+                  type: "fill-in-the-blank",
+                  question: "Assets minus ________ equals your net worth.",
+                  answer: "liabilities"
+                },
+                {
+                  type: "multiple-choice",
+                  question: "Which item is NOT part of your financial snapshot?",
+                  options: [
+                    "Income",
+                    "Liabilities",
+                    "Hobbies",
+                    "Expenses"
+                  ],
+                  answer: 2
+                }
+              ]
+            },
+            "mod1-les2": {
+              title: "Budgeting & Cash Flow Management",
+              questions: [
+                {
+                  type: "multiple-choice",
+                  question: "The 50/30/20 rule divides income into needs, wants, and what else?",
+                  options: [
+                    "Savings and debt",
+                    "Investments",
+                    "Taxes",
+                    "Charity"
+                  ],
+                  answer: 0
+                },
+                {
+                  type: "fill-in-the-blank",
+                  question: "In the envelope system, you use ________ for each spending category.",
+                  answer: "cash"
+                },
+                {
+                  type: "multiple-choice",
+                  question: "Zero-based budgeting means:",
+                  options: [
+                    "Ignoring your expenses",
+                    "Assigning every dollar a job",
+                    "Spending randomly",
+                    "Saving only what is left over"
+                  ],
+                  answer: 1
+                }
+              ]
+            },
+            // Add more lessons 3-7 quizzes similarly here...
+            "mod1-les3": {
+              title: "Credit Scores and Reports",
+              questions: [
+                {
+                  type: "multiple-choice",
+                  question: "What is a good credit score range?",
+                  options: [
+                    "300-499",
+                    "500-599",
+                    "600-699",
+                    "700-850"
+                  ],
+                  answer: 3
+                },
+                {
+                  type: "fill-in-the-blank",
+                  question: "Paying bills on ________ helps maintain a good credit score.",
+                  answer: "time"
+                },
+                {
+                  type: "multiple-choice",
+                  question: "Which agency does NOT provide credit reports?",
+                  options: [
+                    "Experian",
+                    "Equifax",
+                    "TransUnion",
+                    "FDIC"
+                  ],
+                  answer: 3
+                }
+              ]
+            },
+            "mod1-les4": {
+              title: "Managing Debt Wisely",
+              questions: [
+                {
+                  type: "multiple-choice",
+                  question: "Which debt payoff method focuses on paying smallest balances first?",
+                  options: [
+                    "Avalanche method",
+                    "Snowball method",
+                    "Consolidation method",
+                    "Refinancing method"
+                  ],
+                  answer: 1
+                },
+                {
+                  type: "fill-in-the-blank",
+                  question: "Interest rates on debt affect how much you ________ over time.",
+                  answer: "pay"
+                },
+                {
+                  type: "multiple-choice",
+                  question: "Good debt is generally considered:",
+                  options: [
+                    "Credit card debt",
+                    "Payday loans",
+                    "Student loans and mortgages",
+                    "Unpaid utility bills"
+                  ],
+                  answer: 2
+                }
+              ]
+            },
+            "mod1-les5": {
+              title: "Emergency Funds",
+              questions: [
+                {
+                  type: "multiple-choice",
+                  question: "An emergency fund should ideally cover how many months of expenses?",
+                  options: [
+                    "1 month",
+                    "3-6 months",
+                    "12 months",
+                    "No emergency fund needed"
+                  ],
+                  answer: 1
+                },
+                {
+                  type: "fill-in-the-blank",
+                  question: "Emergency funds should be kept in a ________ account for easy access.",
+                  answer: "liquid"
+                },
+                {
+                  type: "multiple-choice",
+                  question: "Which is NOT a good use of emergency funds?",
+                  options: [
+                    "Unexpected medical bills",
+                    "Car repairs",
+                    "Vacations",
+                    "Job loss expenses"
+                  ],
+                  answer: 2
+                }
+              ]
+            },
+            "mod1-les6": {
+              title: "Savings Strategies",
+              questions: [
+                {
+                  type: "multiple-choice",
+                  question: "Which savings strategy involves automatic transfers to savings?",
+                  options: [
+                    "Manual saving",
+                    "Pay-yourself-first",
+                    "Impulse buying",
+                    "Cash envelope"
+                  ],
+                  answer: 1
+                },
+                {
+                  type: "fill-in-the-blank",
+                  question: "Setting savings goals helps you stay ________.",
+                  answer: "motivated"
+                },
+                {
+                  type: "multiple-choice",
+                  question: "High-yield savings accounts typically offer:",
+                  options: [
+                    "Low interest rates",
+                    "High fees",
+                    "Better interest rates than regular savings",
+                    "No access to funds"
+                  ],
+                  answer: 2
+                }
+              ]
+            },
+            "mod1-les7": {
+              title: "Financial Goal Setting",
+              questions: [
+                {
+                  type: "multiple-choice",
+                  question: "SMART goals stand for Specific, Measurable, Achievable, Realistic, and what?",
+                  options: [
+                    "Time-bound",
+                    "Temporary",
+                    "Tangible",
+                    "Trusted"
+                  ],
+                  answer: 0
+                },
+                {
+                  type: "fill-in-the-blank",
+                  question: "Setting clear financial goals increases your chance of ________.",
+                  answer: "success"
+                },
+                {
+                  type: "multiple-choice",
+                  question: "Long-term financial goals typically span over:",
+                  options: [
+                    "Less than 1 year",
+                    "1-3 years",
+                    "3-5 years",
+                    "More than 5 years"
+                  ],
+                  answer: 3
+                }
+              ]
+            }
+          },
+          test: {
+            title: "Module 1 Comprehensive Test",
+            questions: [
+              // Mix multiple choice + fill in blank + scenario
+              {
+                type: "multiple-choice",
+                question: "Which component is NOT part of a personal financial snapshot?",
+                options: ["Income", "Assets", "Credit Cards", "Liabilities"],
+                answer: 2
+              },
+              {
+                type: "fill-in-the-blank",
+                question: "The 50/30/20 budgeting rule allocates 20% to ________ and debt repayment.",
+                answer: "savings"
+              },
+              {
+                type: "multiple-choice",
+                question: "Good credit score starts at about:",
+                options: ["300", "500", "650", "700"],
+                answer: 3
+              },
+              {
+                type: "multiple-choice",
+                question: "The snowball method focuses on paying off the ________ debts first.",
+                options: ["largest", "smallest", "oldest", "newest"],
+                answer: 1
+              },
+              {
+                type: "fill-in-the-blank",
+                question: "Emergency funds should be kept in a ________ account.",
+                answer: "liquid"
+              },
+              {
+                type: "multiple-choice",
+                question: "SMART financial goals are:",
+                options: ["Vague", "Specific", "Impossible", "Temporary"],
+                answer: 1
+              }
+            ]
+          }
+        },
+        // Add mod2 to mod7 quizzes/tests here similarly...
+      };
+      quizData["mod2"] = {
+        lessons: {
+          "mod2-les1": {
+            title: "Why Invest? Inflation & Compounding",
+            questions: [
+              {
+                type: "multiple-choice",
+                question: "What does inflation do to the purchasing power of money?",
+                options: [
+                  "Increases it",
+                  "Decreases it",
+                  "Has no effect",
+                  "Makes it stable"
+                ],
+                answer: 1
+              },
+              {
+                type: "fill-in-the-blank",
+                question: "Compounding means earning interest on both your principal and the ________ interest.",
+                answer: "accumulated"
+              },
+              {
+                type: "multiple-choice",
+                question: "Why is it important to start investing early?",
+                options: [
+                  "To maximize the benefits of compounding",
+                  "To avoid taxes",
+                  "Because investing late is illegal",
+                  "To get quick returns"
+                ],
+                answer: 0
+              }
+            ]
+          },
+          "mod2-les2": {
+            title: "Types of Investments",
+            questions: [
+              {
+                type: "multiple-choice",
+                question: "Which of the following is NOT typically considered an investment?",
+                options: [
+                  "Stocks",
+                  "Bonds",
+                  "Savings account",
+                  "Real estate"
+                ],
+                answer: 2
+              },
+              {
+                type: "fill-in-the-blank",
+                question: "Stocks represent ownership in a ________.",
+                answer: "company"
+              },
+              {
+                type: "multiple-choice",
+                question: "Bonds are generally considered to be:",
+                options: [
+                  "High risk, high return",
+                  "Low risk, fixed return",
+                  "Gambling",
+                  "Illegal"
+                ],
+                answer: 1
+              }
+            ]
+          },
+          "mod2-les3": {
+            title: "Risk and Return",
+            questions: [
+              {
+                type: "multiple-choice",
+                question: "Higher potential returns generally come with:",
+                options: [
+                  "Lower risk",
+                  "No risk",
+                  "Higher risk",
+                  "Guaranteed profit"
+                ],
+                answer: 2
+              },
+              {
+                type: "fill-in-the-blank",
+                question: "Diversification helps reduce ________ by spreading investments across assets.",
+                answer: "risk"
+              },
+              {
+                type: "multiple-choice",
+                question: "Which investment is usually considered the safest?",
+                options: [
+                  "Stocks",
+                  "Government bonds",
+                  "Cryptocurrency",
+                  "Options trading"
+                ],
+                answer: 1
+              }
+            ]
+          },
+          "mod2-les4": {
+            title: "Stock Market Basics",
+            questions: [
+              {
+                type: "multiple-choice",
+                question: "The stock market is:",
+                options: [
+                  "A place to buy and sell company ownership",
+                  "A gambling venue",
+                  "Only for wealthy people",
+                  "Illegal for individuals"
+                ],
+                answer: 0
+              },
+              {
+                type: "fill-in-the-blank",
+                question: "Stocks are bought and sold on stock ________ like the NYSE or NASDAQ.",
+                answer: "exchanges"
+              },
+              {
+                type: "multiple-choice",
+                question: "Dividends are:",
+                options: [
+                  "Interest payments on bonds",
+                  "Company profits shared with shareholders",
+                  "Fees paid to brokers",
+                  "A type of tax"
+                ],
+                answer: 1
+              }
+            ]
+          },
+          "mod2-les5": {
+            title: "Mutual Funds and ETFs",
+            questions: [
+              {
+                type: "multiple-choice",
+                question: "Mutual funds pool money from many investors to buy:",
+                options: [
+                  "A diversified portfolio of assets",
+                  "Real estate only",
+                  "Cryptocurrency exclusively",
+                  "Cash only"
+                ],
+                answer: 0
+              },
+              {
+                type: "fill-in-the-blank",
+                question: "ETFs trade on stock exchanges and can be bought and sold like ________.",
+                answer: "stocks"
+              },
+              {
+                type: "multiple-choice",
+                question: "One advantage of mutual funds and ETFs is:",
+                options: [
+                  "High fees",
+                  "Instant liquidity",
+                  "Diversification",
+                  "Guaranteed returns"
+                ],
+                answer: 2
+              }
+            ]
+          },
+          "mod2-les6": {
+            title: "Investment Accounts",
+            questions: [
+              {
+                type: "multiple-choice",
+                question: "Which account type offers tax advantages for retirement savings?",
+                options: [
+                  "Checking account",
+                  "401(k)",
+                  "Regular savings account",
+                  "Brokerage account"
+                ],
+                answer: 1
+              },
+              {
+                type: "fill-in-the-blank",
+                question: "A Roth IRA allows for tax-free ________ withdrawals in retirement.",
+                answer: "qualified"
+              },
+              {
+                type: "multiple-choice",
+                question: "Brokerage accounts:",
+                options: [
+                  "Have no tax advantages but offer flexibility",
+                  "Are tax-free",
+                  "Are illegal for individuals",
+                  "Can only hold bonds"
+                ],
+                answer: 0
+              }
+            ]
+          },
+          "mod2-les7": {
+            title: "Investment Strategies",
+            questions: [
+              {
+                type: "multiple-choice",
+                question: "Dollar-cost averaging means:",
+                options: [
+                  "Investing a fixed amount regularly regardless of price",
+                  "Investing all money at once",
+                  "Selling stocks daily",
+                  "Ignoring the market trends"
+                ],
+                answer: 0
+              },
+              {
+                type: "fill-in-the-blank",
+                question: "A diversified portfolio helps to manage ________.",
+                answer: "risk"
+              },
+              {
+                type: "multiple-choice",
+                question: "Long-term investing generally aims to:",
+                options: [
+                  "Time the market perfectly",
+                  "Minimize risk and grow wealth steadily",
+                  "Make quick profits",
+                  "Avoid investing altogether"
+                ],
+                answer: 1
+              }
+            ]
+          }
+        },
+        test: {
+          title: "Module 2 Comprehensive Test",
+          questions: [
+            {
+              type: "multiple-choice",
+              question: "What does compounding interest mean?",
+              options: [
+                "Interest earned only on the original amount",
+                "Interest earned on both original amount and accumulated interest",
+                "Paying interest on debt",
+                "No interest is involved"
+              ],
+              answer: 1
+            },
+            {
+              type: "multiple-choice",
+              question: "Which investment is usually considered the riskiest?",
+              options: [
+                "Government bonds",
+                "Stocks",
+                "Savings account",
+                "Certificates of deposit"
+              ],
+              answer: 1
+            },
+            {
+              type: "fill-in-the-blank",
+              question: "Diversification helps to reduce ________ in investing.",
+              answer: "risk"
+            },
+            {
+              type: "multiple-choice",
+              question: "Mutual funds pool money from many investors to create:",
+              options: [
+                "Individual stock portfolios",
+                "Diversified portfolios",
+                "Bank loans",
+                "Insurance policies"
+              ],
+              answer: 1
+            },
+            {
+              type: "multiple-choice",
+              question: "Which account offers tax advantages for retirement?",
+              options: [
+                "Brokerage account",
+                "Roth IRA",
+                "Checking account",
+                "Savings account"
+              ],
+              answer: 1
+            },
+            {
+              type: "fill-in-the-blank",
+              question: "Dollar-cost averaging involves investing a fixed amount at ________ intervals.",
+              answer: "regular"
+            }
+          ]
+        }
+      };
+      quizData["mod3"] = {
+        lessons: {
+          "mod3-les1": {
+            title: "Financial Statements Overview",
+            questions: [
+              {
+                type: "multiple-choice",
+                question: "Which financial statement shows a company's assets, liabilities, and equity?",
+                options: [
+                  "Income Statement",
+                  "Balance Sheet",
+                  "Cash Flow Statement",
+                  "Statement of Retained Earnings"
+                ],
+                answer: 1
+              },
+              {
+                type: "fill-in-the-blank",
+                question: "The Income Statement summarizes a company's ________ and expenses over a period.",
+                answer: "revenues"
+              },
+              {
+                type: "multiple-choice",
+                question: "Cash Flow Statement reports cash inflows and outflows from:",
+                options: [
+                  "Operating, Investing, and Financing activities",
+                  "Only sales",
+                  "Taxes",
+                  "Stockholder dividends only"
+                ],
+                answer: 0
+              }
+            ]
+          },
+          "mod3-les2": {
+            title: "Capital Budgeting",
+            questions: [
+              {
+                type: "multiple-choice",
+                question: "Which technique is used to evaluate investment projects by discounting future cash flows?",
+                options: [
+                  "Payback Period",
+                  "Net Present Value (NPV)",
+                  "Accounting Rate of Return",
+                  "Book Value"
+                ],
+                answer: 1
+              },
+              {
+                type: "fill-in-the-blank",
+                question: "The NPV method considers the ________ value of money.",
+                answer: "time"
+              },
+              {
+                type: "multiple-choice",
+                question: "A project with a positive NPV is generally:",
+                options: [
+                  "Rejected",
+                  "Accepted",
+                  "Ignored",
+                  "Risky"
+                ],
+                answer: 1
+              }
+            ]
+          },
+          "mod3-les3": {
+            title: "Cost of Capital",
+            questions: [
+              {
+                type: "multiple-choice",
+                question: "The weighted average cost of capital (WACC) is used to:",
+                options: [
+                  "Calculate company's average borrowing cost",
+                  "Determine the average return expected by investors",
+                  "Evaluate risk-free rate",
+                  "Estimate tax rates"
+                ],
+                answer: 1
+              },
+              {
+                type: "fill-in-the-blank",
+                question: "WACC includes cost of debt and cost of ________ weighted by their proportions.",
+                answer: "equity"
+              },
+              {
+                type: "multiple-choice",
+                question: "Which of the following decreases WACC?",
+                options: [
+                  "Higher debt costs",
+                  "Lower equity costs",
+                  "Increased risk",
+                  "Higher taxes"
+                ],
+                answer: 1
+              }
+            ]
+          },
+          "mod3-les4": {
+            title: "Capital Structure",
+            questions: [
+              {
+                type: "multiple-choice",
+                question: "Capital structure refers to a company's mix of:",
+                options: [
+                  "Assets and liabilities",
+                  "Debt and equity",
+                  "Cash and inventory",
+                  "Sales and expenses"
+                ],
+                answer: 1
+              },
+              {
+                type: "fill-in-the-blank",
+                question: "A company’s capital structure affects its ________ and risk profile.",
+                answer: "financial leverage"
+              },
+              {
+                type: "multiple-choice",
+                question: "Using more debt in capital structure is called:",
+                options: [
+                  "Deleveraging",
+                  "Leveraging",
+                  "Diversification",
+                  "Refinancing"
+                ],
+                answer: 1
+              }
+            ]
+          },
+          "mod3-les5": {
+            title: "Working Capital Management",
+            questions: [
+              {
+                type: "multiple-choice",
+                question: "Working capital is the difference between:",
+                options: [
+                  "Current assets and current liabilities",
+                  "Total assets and liabilities",
+                  "Cash and debt",
+                  "Revenue and expenses"
+                ],
+                answer: 0
+              },
+              {
+                type: "fill-in-the-blank",
+                question: "Efficient working capital management ensures ________ liquidity for operations.",
+                answer: "adequate"
+              },
+              {
+                type: "multiple-choice",
+                question: "Which of these is NOT a current asset?",
+                options: [
+                  "Inventory",
+                  "Accounts receivable",
+                  "Equipment",
+                  "Cash"
+                ],
+                answer: 2
+              }
+            ]
+          },
+          "mod3-les6": {
+            title: "Dividend Policy",
+            questions: [
+              {
+                type: "multiple-choice",
+                question: "Dividend policy refers to decisions about:",
+                options: [
+                  "How much profit to distribute to shareholders",
+                  "How to raise capital",
+                  "Debt management",
+                  "Mergers and acquisitions"
+                ],
+                answer: 0
+              },
+              {
+                type: "fill-in-the-blank",
+                question: "Companies may retain earnings instead of paying dividends to ________ growth.",
+                answer: "fund"
+              },
+              {
+                type: "multiple-choice",
+                question: "A stable dividend policy implies:",
+                options: [
+                  "Regular and predictable dividend payments",
+                  "Random dividend payments",
+                  "No dividends at all",
+                  "Dividends only in profitable years"
+                ],
+                answer: 0
+              }
+            ]
+          },
+          "mod3-les7": {
+            title: "Financial Ratios and Analysis",
+            questions: [
+              {
+                type: "multiple-choice",
+                question: "The current ratio measures:",
+                options: [
+                  "Profitability",
+                  "Liquidity",
+                  "Leverage",
+                  "Market value"
+                ],
+                answer: 1
+              },
+              {
+                type: "fill-in-the-blank",
+                question: "Debt-to-equity ratio indicates a company’s ________ risk.",
+                answer: "financial"
+              },
+              {
+                type: "multiple-choice",
+                question: "Return on equity (ROE) measures:",
+                options: [
+                  "Net income relative to shareholder equity",
+                  "Total revenue",
+                  "Stock price growth",
+                  "Dividend yield"
+                ],
+                answer: 0
+              }
+            ]
+          }
+        },
+        test: {
+          title: "Module 3 Comprehensive Test",
+          questions: [
+            {
+              type: "multiple-choice",
+              question: "Which statement shows a company’s financial position at a specific point in time?",
+              options: [
+                "Income Statement",
+                "Balance Sheet",
+                "Cash Flow Statement",
+                "Retained Earnings Statement"
+              ],
+              answer: 1
+            },
+            {
+              type: "multiple-choice",
+              question: "Net Present Value (NPV) accounts for:",
+              options: [
+                "Time value of money",
+                "Book value",
+                "Gross profit",
+                "Inventory levels"
+              ],
+              answer: 0
+            },
+            {
+              type: "fill-in-the-blank",
+              question: "Weighted Average Cost of Capital is abbreviated as ________.",
+              answer: "WACC"
+            },
+            {
+              type: "multiple-choice",
+              question: "Capital structure is the mix of ________ and equity used to finance operations.",
+              options: [
+                "Assets",
+                "Debt",
+                "Revenue",
+                "Cash"
+              ],
+              answer: 1
+            },
+            {
+              type: "multiple-choice",
+              question: "Working capital is calculated as current assets minus ________.",
+              options: [
+                "Long-term liabilities",
+                "Current liabilities",
+                "Fixed assets",
+                "Equity"
+              ],
+              answer: 1
+            },
+            {
+              type: "fill-in-the-blank",
+              question: "A stable dividend policy offers predictable ________ payments.",
+              answer: "dividend"
+            },
+            {
+              type: "multiple-choice",
+              question: "The current ratio measures a company’s ________.",
+              options: [
+                "Liquidity",
+                "Profitability",
+                "Debt",
+                "Sales"
+              ],
+              answer: 0
+            }
+          ]
+        }
+      };
+      quizData["mod4"] = {
+        lessons: {
+          "mod4-les1": {
+            title: "Introduction to Economics",
+            questions: [
+              {
+                type: "multiple-choice",
+                question: "Economics is primarily concerned with:",
+                options: [
+                  "Unlimited resources",
+                  "Scarcity and resource allocation",
+                  "Only government policies",
+                  "Manufacturing processes"
+                ],
+                answer: 1
+              },
+              {
+                type: "fill-in-the-blank",
+                question: "Opportunity cost is what you give up when making a ________.",
+                answer: "choice"
+              },
+              {
+                type: "multiple-choice",
+                question: "Supply and demand influence:",
+                options: [
+                  "Prices and quantities in markets",
+                  "Weather patterns",
+                  "Only government spending",
+                  "Population growth"
+                ],
+                answer: 0
+              }
+            ]
+          },
+          "mod4-les2": {
+            title: "Microeconomics vs Macroeconomics",
+            questions: [
+              {
+                type: "multiple-choice",
+                question: "Microeconomics studies:",
+                options: [
+                  "The entire economy",
+                  "Individual and firm decisions",
+                  "Government budgets",
+                  "International trade"
+                ],
+                answer: 1
+              },
+              {
+                type: "fill-in-the-blank",
+                question: "Macroeconomics focuses on ________ economic variables.",
+                answer: "aggregate"
+              },
+              {
+                type: "multiple-choice",
+                question: "Which field examines unemployment and inflation?",
+                options: [
+                  "Microeconomics",
+                  "Macroeconomics",
+                  "Behavioral economics",
+                  "Environmental economics"
+                ],
+                answer: 1
+              }
+            ]
+          },
+          "mod4-les3": {
+            title: "Supply and Demand",
+            questions: [
+              {
+                type: "multiple-choice",
+                question: "The equilibrium price is where:",
+                options: [
+                  "Quantity supplied exceeds quantity demanded",
+                  "Quantity demanded equals quantity supplied",
+                  "Supply is zero",
+                  "Demand is zero"
+                ],
+                answer: 1
+              },
+              {
+                type: "fill-in-the-blank",
+                question: "A shift in the demand curve means a change in ________ other than price.",
+                answer: "factors"
+              },
+              {
+                type: "multiple-choice",
+                question: "If supply increases and demand stays the same, price will:",
+                options: [
+                  "Increase",
+                  "Decrease",
+                  "Stay the same",
+                  "Become unpredictable"
+                ],
+                answer: 1
+              }
+            ]
+          },
+          "mod4-les4": {
+            title: "Economic Indicators",
+            questions: [
+              {
+                type: "multiple-choice",
+                question: "GDP measures:",
+                options: [
+                  "Unemployment rate",
+                  "Total economic output",
+                  "Inflation rate",
+                  "Stock prices"
+                ],
+                answer: 1
+              },
+              {
+                type: "fill-in-the-blank",
+                question: "Inflation affects the ________ power of money.",
+                answer: "purchasing"
+              },
+              {
+                type: "multiple-choice",
+                question: "A high unemployment rate indicates:",
+                options: [
+                  "Strong labor market",
+                  "Weak labor market",
+                  "No effect on economy",
+                  "Higher GDP"
+                ],
+                answer: 1
+              }
+            ]
+          },
+          "mod4-les5": {
+            title: "Monetary and Fiscal Policy",
+            questions: [
+              {
+                type: "multiple-choice",
+                question: "Monetary policy is controlled by:",
+                options: [
+                  "Government legislature",
+                  "Central banks",
+                  "Private companies",
+                  "Non-profit organizations"
+                ],
+                answer: 1
+              },
+              {
+                type: "fill-in-the-blank",
+                question: "Fiscal policy involves government spending and ________.",
+                answer: "taxation"
+              },
+              {
+                type: "multiple-choice",
+                question: "Lowering interest rates typically:",
+                options: [
+                  "Slows economic growth",
+                  "Encourages borrowing and investment",
+                  "Increases inflation immediately",
+                  "Has no effect"
+                ],
+                answer: 1
+              }
+            ]
+          },
+          "mod4-les6": {
+            title: "Market Structures",
+            questions: [
+              {
+                type: "multiple-choice",
+                question: "A monopoly is characterized by:",
+                options: [
+                  "Many sellers with identical products",
+                  "One seller dominating the market",
+                  "A few sellers competing",
+                  "No sellers"
+                ],
+                answer: 1
+              },
+              {
+                type: "fill-in-the-blank",
+                question: "Oligopolies consist of a ________ number of dominant firms.",
+                answer: "few"
+              },
+              {
+                type: "multiple-choice",
+                question: "Perfect competition features:",
+                options: [
+                  "Differentiated products",
+                  "Many sellers and identical products",
+                  "No competition",
+                  "Government ownership"
+                ],
+                answer: 1
+              }
+            ]
+          },
+          "mod4-les7": {
+            title: "International Trade and Finance",
+            questions: [
+              {
+                type: "multiple-choice",
+                question: "International trade allows countries to:",
+                options: [
+                  "Specialize and exchange goods",
+                  "Avoid economic growth",
+                  "Stop imports",
+                  "Eliminate currency exchange"
+                ],
+                answer: 0
+              },
+              {
+                type: "fill-in-the-blank",
+                question: "Exchange rates affect the cost of ________ and exports.",
+                answer: "imports"
+              },
+              {
+                type: "multiple-choice",
+                question: "Political stability influences:",
+                options: [
+                  "Currency markets",
+                  "Weather",
+                  "Population size",
+                  "Food prices"
+                ],
+                answer: 0
+              }
+            ]
+          }
+        },
+        test: {
+          title: "Module 4 Comprehensive Test",
+          questions: [
+            {
+              type: "multiple-choice",
+              question: "Scarcity means:",
+              options: [
+                "Unlimited resources",
+                "Limited resources requiring choices",
+                "No need to make decisions",
+                "Free goods"
+              ],
+              answer: 1
+            },
+            {
+              type: "multiple-choice",
+              question: "Microeconomics studies:",
+              options: [
+                "Entire economy",
+                "Individuals and firms",
+                "Government policies only",
+                "International relations"
+              ],
+              answer: 1
+            },
+            {
+              type: "fill-in-the-blank",
+              question: "Equilibrium price occurs when quantity demanded equals quantity ________.",
+              answer: "supplied"
+            },
+            {
+              type: "multiple-choice",
+              question: "GDP measures:",
+              options: [
+                "Total economic output",
+                "Stock prices",
+                "Inflation",
+                "Unemployment"
+              ],
+              answer: 0
+            },
+            {
+              type: "multiple-choice",
+              question: "Central banks control:",
+              options: [
+                "Fiscal policy",
+                "Monetary policy",
+                "Trade agreements",
+                "Corporate taxes"
+              ],
+              answer: 1
+            },
+            {
+              type: "multiple-choice",
+              question: "A monopoly has:",
+              options: [
+                "Many competitors",
+                "One dominant seller",
+                "No sellers",
+                "Government control"
+              ],
+              answer: 1
+            },
+            {
+              type: "multiple-choice",
+              question: "International trade increases:",
+              options: [
+                "Economic isolation",
+                "Specialization and efficiency",
+                "Currency manipulation",
+                "Trade barriers"
+              ],
+              answer: 1
+            }
+          ]
+        }
+      };
+      quizData["mod5"] = {
+        lessons: {
+          "mod5-les1": {
+            title: "Budgeting Basics",
+            questions: [
+              {
+                type: "multiple-choice",
+                question: "What is the primary purpose of budgeting?",
+                options: [
+                  "To spend all your income",
+                  "To track income and expenses",
+                  "To ignore expenses",
+                  "To get more loans"
+                ],
+                answer: 1
+              },
+              {
+                type: "fill-in-the-blank",
+                question: "Fixed expenses are those that remain ________ each month.",
+                answer: "constant"
+              },
+              {
+                type: "multiple-choice",
+                question: "Why should you review your budget regularly?",
+                options: [
+                  "To adjust spending habits",
+                  "To increase debt",
+                  "To avoid saving",
+                  "To ignore financial goals"
+                ],
+                answer: 0
+              }
+            ]
+          },
+          "mod5-les2": {
+            title: "Saving Strategies",
+            questions: [
+              {
+                type: "multiple-choice",
+                question: "Automating savings helps:",
+                options: [
+                  "Forget about saving",
+                  "Make saving consistent",
+                  "Increase spending",
+                  "Avoid budgeting"
+                ],
+                answer: 1
+              },
+              {
+                type: "fill-in-the-blank",
+                question: "Compound interest helps savings grow ________ over time.",
+                answer: "faster"
+              },
+              {
+                type: "multiple-choice",
+                question: "Why is starting to save early important?",
+                options: [
+                  "To reduce future savings",
+                  "To benefit from compound interest",
+                  "To avoid budgeting",
+                  "To increase spending"
+                ],
+                answer: 1
+              }
+            ]
+          },
+          "mod5-les3": {
+            title: "Managing Debt",
+            questions: [
+              {
+                type: "multiple-choice",
+                question: "Which debt should be prioritized for repayment?",
+                options: [
+                  "Low-interest debt",
+                  "High-interest debt",
+                  "No debt",
+                  "Credit card balance at zero"
+                ],
+                answer: 1
+              },
+              {
+                type: "fill-in-the-blank",
+                question: "The snowball method focuses on paying off ________ debts first.",
+                answer: "smallest"
+              },
+              {
+                type: "multiple-choice",
+                question: "What should you avoid while repaying debt?",
+                options: [
+                  "Taking new debt",
+                  "Paying more than minimum",
+                  "Budgeting",
+                  "Tracking expenses"
+                ],
+                answer: 0
+              }
+            ]
+          },
+          "mod5-les4": {
+            title: "Credit Scores and Reports",
+            questions: [
+              {
+                type: "multiple-choice",
+                question: "A good credit score helps with:",
+                options: [
+                  "Higher loan interest rates",
+                  "Loan approvals and lower interest rates",
+                  "Avoiding taxes",
+                  "Increasing debt"
+                ],
+                answer: 1
+              },
+              {
+                type: "fill-in-the-blank",
+                question: "Credit utilization is the ratio of credit used to credit ________.",
+                answer: "available"
+              },
+              {
+                type: "multiple-choice",
+                question: "Checking your credit report helps detect:",
+                options: [
+                  "Errors and identity theft",
+                  "More debt",
+                  "Spending habits",
+                  "Budget failures"
+                ],
+                answer: 0
+              }
+            ]
+          },
+          "mod5-les5": {
+            title: "Insurance Essentials",
+            questions: [
+              {
+                type: "multiple-choice",
+                question: "Which insurance protects against income loss due to illness or injury?",
+                options: [
+                  "Health insurance",
+                  "Life insurance",
+                  "Disability insurance",
+                  "Auto insurance"
+                ],
+                answer: 2
+              },
+              {
+                type: "fill-in-the-blank",
+                question: "The amount you pay before insurance covers a claim is called a ________.",
+                answer: "deductible"
+              },
+              {
+                type: "multiple-choice",
+                question: "Reviewing your insurance policies regularly ensures:",
+                options: [
+                  "Coverage meets your current needs",
+                  "Higher premiums",
+                  "No coverage",
+                  "Policy cancellation"
+                ],
+                answer: 0
+              }
+            ]
+          },
+          "mod5-les6": {
+            title: "Retirement Planning",
+            questions: [
+              {
+                type: "multiple-choice",
+                question: "Which account is commonly used for retirement savings?",
+                options: [
+                  "401(k)",
+                  "Checking account",
+                  "Credit card",
+                  "Savings account"
+                ],
+                answer: 0
+              },
+              {
+                type: "fill-in-the-blank",
+                question: "Diversifying investments helps manage ________.",
+                answer: "risk"
+              },
+              {
+                type: "multiple-choice",
+                question: "Why is it important to plan for healthcare costs in retirement?",
+                options: [
+                  "Healthcare costs decrease",
+                  "Healthcare costs increase and affect budget",
+                  "Healthcare is free",
+                  "Healthcare costs stay the same"
+                ],
+                answer: 1
+              }
+            ]
+          },
+          "mod5-les7": {
+            title: "Smart Spending Habits",
+            questions: [
+              {
+                type: "multiple-choice",
+                question: "Smart spending involves:",
+                options: [
+                  "Impulse buying",
+                  "Conscious decisions aligned with goals",
+                  "Ignoring budgets",
+                  "Maximizing debt"
+                ],
+                answer: 1
+              },
+              {
+                type: "fill-in-the-blank",
+                question: "Tracking your ________ helps identify areas to save money.",
+                answer: "expenses"
+              },
+              {
+                type: "multiple-choice",
+                question: "Building an emergency fund helps avoid:",
+                options: [
+                  "Using credit cards for unexpected expenses",
+                  "Saving money",
+                  "Budgeting",
+                  "Planning"
+                ],
+                answer: 0
+              }
+            ]
+          }
+        },
+        test: {
+          title: "Module 5 Comprehensive Test",
+          questions: [
+            {
+              type: "multiple-choice",
+              question: "What is the purpose of a budget?",
+              options: [
+                "To track money and control spending",
+                "To ignore income",
+                "To increase debt",
+                "To avoid savings"
+              ],
+              answer: 0
+            },
+            {
+              type: "multiple-choice",
+              question: "Automating savings helps:",
+              options: [
+                "Forget about saving",
+                "Make saving consistent",
+                "Increase spending",
+                "Avoid budgeting"
+              ],
+              answer: 1
+            },
+            {
+              type: "fill-in-the-blank",
+              question: "Paying off the highest interest debt first is called the ________ method.",
+              answer: "avalanche"
+            },
+            {
+              type: "multiple-choice",
+              question: "A good credit score can help you get:",
+              options: [
+                "Higher interest rates",
+                "Loan approvals and lower rates",
+                "More debt",
+                "No loans"
+              ],
+              answer: 1
+            },
+            {
+              type: "multiple-choice",
+              question: "Disability insurance protects against:",
+              options: [
+                "Property damage",
+                "Loss of income due to injury or illness",
+                "Car accidents",
+                "Fire damage"
+              ],
+              answer: 1
+            },
+            {
+              type: "multiple-choice",
+              question: "Retirement planning should start:",
+              options: [
+                "Late in life",
+                "Early to maximize growth",
+                "Only after 50",
+                "Never"
+              ],
+              answer: 1
+            },
+            {
+              type: "multiple-choice",
+              question: "Smart spending means:",
+              options: [
+                "Buying impulsively",
+                "Making conscious decisions aligned with goals",
+                "Ignoring budgets",
+                "Increasing debt"
+              ],
+              answer: 1
+            }
+          ]
+        }
+      };
+quizData["mod6"] = {
+  lessons: {
+    "mod6-les1": {
+      title: "Why Invest?",
+      questions: [
+        {
+          type: "multiple-choice",
+          question: "Why is investing important?",
+          options: [
+            "To keep money under the mattress",
+            "To grow wealth over time",
+            "To avoid risk",
+            "To avoid inflation"
+          ],
+          answer: 1
+        },
+        {
+          type: "fill-in-the-blank",
+          question: "Compound growth means earnings generate more ________.",
+          answer: "earnings"
+        }
+      ]
+    },
+    "mod6-les2": {
+      title: "Types of Investments",
+      questions: [
+        {
+          type: "multiple-choice",
+          question: "Which investment represents ownership in a company?",
+          options: ["Bond", "Stock", "Mutual Fund", "Real Estate"],
+          answer: 1
+        },
+        {
+          type: "fill-in-the-blank",
+          question: "Bonds usually provide ________ income.",
+          answer: "fixed"
+        }
+      ]
+    },
+    "mod6-les3": {
+      title: "Risk and Return",
+      questions: [
+        {
+          type: "multiple-choice",
+          question: "Higher returns generally come with:",
+          options: ["Lower risk", "Higher risk", "No risk", "Guaranteed profit"],
+          answer: 1
+        },
+        {
+          type: "fill-in-the-blank",
+          question: "Diversification helps reduce ________.",
+          answer: "risk"
+        }
+      ]
+    },
+    "mod6-les4": {
+      title: "Stock Market Basics",
+      questions: [
+        {
+          type: "multiple-choice",
+          question: "Where are publicly traded stocks bought and sold?",
+          options: ["Banks", "Stock Exchanges", "Supermarkets", "Government offices"],
+          answer: 1
+        },
+        {
+          type: "fill-in-the-blank",
+          question: "An index fund tracks a ________ of stocks.",
+          answer: "market"
+        }
+      ]
+    },
+    "mod6-les5": {
+      title: "Investment Strategies",
+      questions: [
+        {
+          type: "multiple-choice",
+          question: "Value investing focuses on:",
+          options: [
+            "Buying expensive stocks",
+            "Buying undervalued stocks",
+            "Day trading",
+            "Avoiding stocks"
+          ],
+          answer: 1
+        },
+        {
+          type: "fill-in-the-blank",
+          question: "Growth investing targets companies with high ________ potential.",
+          answer: "earnings"
+        }
+      ]
+    },
+    "mod6-les6": {
+      title: "How to Start Investing",
+      questions: [
+        {
+          type: "multiple-choice",
+          question: "A good way to start investing safely is:",
+          options: [
+            "Buying individual stocks without research",
+            "Investing regularly in diversified funds",
+            "Timing the market",
+            "Ignoring fees"
+          ],
+          answer: 1
+        },
+        {
+          type: "fill-in-the-blank",
+          question: "Assess your ________ tolerance before investing.",
+          answer: "risk"
+        }
+      ]
+    },
+    "mod6-les7": {
+      title: "Common Investing Mistakes",
+      questions: [
+        {
+          type: "multiple-choice",
+          question: "Which is a common investing mistake?",
+          options: [
+            "Diversifying portfolio",
+            "Trying to time the market",
+            "Reviewing investments regularly",
+            "Investing for long-term"
+          ],
+          answer: 1
+        },
+        {
+          type: "fill-in-the-blank",
+          question: "Ignoring ________ can increase investment costs.",
+          answer: "fees"
+        }
+      ]
+    }
+  },
+  test: {
+    title: "Module 6 Comprehensive Test",
+    questions: [
+      {
+        type: "multiple-choice",
+        question: "Investing helps protect money from:",
+        options: ["Taxes", "Inflation", "Spending", "Saving"],
+        answer: 1
+      },
+      {
+        type: "multiple-choice",
+        question: "Stocks represent:",
+        options: ["Debt", "Ownership", "Loans", "Savings"],
+        answer: 1
+      },
+      {
+        type: "fill-in-the-blank",
+        question: "Higher potential returns usually mean higher ________.",
+        answer: "risk"
+      },
+      {
+        type: "multiple-choice",
+        question: "An exchange where stocks are traded is called:",
+        options: ["Bank", "Stock Exchange", "Supermarket", "Post Office"],
+        answer: 1
+      },
+      {
+        type: "multiple-choice",
+        question: "Diversification helps to:",
+        options: [
+          "Increase risk",
+          "Reduce risk",
+          "Eliminate all risk",
+          "Guarantee profits"
+        ],
+        answer: 1
+      },
+      {
+        type: "multiple-choice",
+        question: "A common mistake is:",
+        options: [
+          "Reviewing portfolio",
+          "Trying to time the market",
+          "Investing regularly",
+          "Diversifying"
+        ],
+        answer: 1
+      },
+      {
+        type: "multiple-choice",
+        question: "Starting investing early helps due to:",
+        options: [
+          "Inflation",
+          "Compound growth",
+          "Market crashes",
+          "Taxes"
+        ],
+        answer: 1
+      }
+    ]
+  }
+};
+const module6Quizzes = [
+  {
+    lessonId: 'mod6-les1',
+    lessonTitle: 'Why Invest?',
+    questions: [
+      {
+        type: 'multiple-choice',
+        question: 'Why is investing important?',
+        options: ['To keep money under the mattress', 'To grow wealth over time', 'To avoid risk', 'To avoid inflation'],
+        answer: 'To grow wealth over time'
+      },
+      {
+        type: 'fill-in-the-blank',
+        question: 'Compound growth means earnings generate more ________.',
+        answer: 'earnings'
+      }
+    ]
+  },
+  {
+    lessonId: 'mod6-les2',
+    lessonTitle: 'Types of Investments',
+    questions: [
+      {
+        type: 'multiple-choice',
+        question: 'Which investment represents ownership in a company?',
+        options: ['Bond', 'Stock', 'Mutual Fund', 'Real Estate'],
+        answer: 'Stock'
+      },
+      {
+        type: 'fill-in-the-blank',
+        question: 'Bonds usually provide ________ income.',
+        answer: 'fixed'
+      }
+    ]
+  },
+  {
+    lessonId: 'mod6-les3',
+    lessonTitle: 'Risk and Return',
+    questions: [
+      {
+        type: 'multiple-choice',
+        question: 'Higher returns generally come with:',
+        options: ['Lower risk', 'Higher risk', 'No risk', 'Guaranteed profit'],
+        answer: 'Higher risk'
+      },
+      {
+        type: 'fill-in-the-blank',
+        question: 'Diversification helps reduce ________.',
+        answer: 'risk'
+      }
+    ]
+  },
+  {
+    lessonId: 'mod6-les4',
+    lessonTitle: 'Stock Market Basics',
+    questions: [
+      {
+        type: 'multiple-choice',
+        question: 'Where are publicly traded stocks bought and sold?',
+        options: ['Banks', 'Stock Exchanges', 'Supermarkets', 'Government offices'],
+        answer: 'Stock Exchanges'
+      },
+      {
+        type: 'fill-in-the-blank',
+        question: 'An index fund tracks a ________ of stocks.',
+        answer: 'market'
+      }
+    ]
+  },
+  {
+    lessonId: 'mod6-les5',
+    lessonTitle: 'Investment Strategies',
+    questions: [
+      {
+        type: 'multiple-choice',
+        question: 'Value investing focuses on:',
+        options: ['Buying expensive stocks', 'Buying undervalued stocks', 'Day trading', 'Avoiding stocks'],
+        answer: 'Buying undervalued stocks'
+      },
+      {
+        type: 'fill-in-the-blank',
+        question: 'Growth investing targets companies with high ________ potential.',
+        answer: 'earnings'
+      }
+    ]
+  },
+  {
+    lessonId: 'mod6-les6',
+    lessonTitle: 'How to Start Investing',
+    questions: [
+      {
+        type: 'multiple-choice',
+        question: 'A good way to start investing safely is:',
+        options: [
+          'Buying individual stocks without research',
+          'Investing regularly in diversified funds',
+          'Timing the market',
+          'Ignoring fees'
+        ],
+        answer: 'Investing regularly in diversified funds'
+      },
+      {
+        type: 'fill-in-the-blank',
+        question: 'Assess your ________ tolerance before investing.',
+        answer: 'risk'
+      }
+    ]
+  },
+  {
+    lessonId: 'mod6-les7',
+    lessonTitle: 'Common Investing Mistakes',
+    questions: [
+      {
+        type: 'multiple-choice',
+        question: 'Which is a common investing mistake?',
+        options: ['Diversifying portfolio', 'Trying to time the market', 'Reviewing investments regularly', 'Investing for long-term'],
+        answer: 'Trying to time the market'
+      },
+      {
+        type: 'fill-in-the-blank',
+        question: 'Ignoring ________ can increase investment costs.',
+        answer: 'fees'
+      }
+    ]
+  }
+];
+
+// Module 6 Test Questions (Comprehensive)
+const module6Test = {
+  moduleId: 'mod6',
+  moduleTitle: 'Introduction to Investing - Test',
+  questions: [
+    {
+      type: 'multiple-choice',
+      question: 'Investing helps protect money from:',
+      options: ['Taxes', 'Inflation', 'Spending', 'Saving'],
+      answer: 'Inflation'
+    },
+    {
+      type: 'multiple-choice',
+      question: 'Stocks represent:',
+      options: ['Debt', 'Ownership', 'Loans', 'Savings'],
+      answer: 'Ownership'
+    },
+    {
+      type: 'fill-in-the-blank',
+      question: 'Higher potential returns usually mean higher ________.',
+      answer: 'risk'
+    },
+    {
+      type: 'multiple-choice',
+      question: 'An exchange where stocks are traded is called:',
+      options: ['Bank', 'Stock Exchange', 'Supermarket', 'Post Office'],
+      answer: 'Stock Exchange'
+    },
+    {
+      type: 'multiple-choice',
+      question: 'Diversification helps to:',
+      options: ['Increase risk', 'Reduce risk', 'Eliminate all risk', 'Guarantee profits'],
+      answer: 'Reduce risk'
+    },
+    {
+      type: 'multiple-choice',
+      question: 'A common mistake is:',
+      options: ['Reviewing portfolio', 'Trying to time the market', 'Investing regularly', 'Diversifying'],
+      answer: 'Trying to time the market'
+    },
+    {
+      type: 'multiple-choice',
+      question: 'Starting investing early helps due to:',
+      options: ['Inflation', 'Compound growth', 'Market crashes', 'Taxes'],
+      answer: 'Compound growth'
+    }
+  ]
+};
+const module7Quizzes = [
+  {
+    lessonId: 'mod7-les1',
+    lessonTitle: 'Retirement Planning Basics',
+    questions: [
+      {
+        type: 'multiple-choice',
+        question: 'What is the primary goal of retirement planning?',
+        options: [
+          'To stop working immediately',
+          'To save enough money to live comfortably after retirement',
+          'To invest only in stocks',
+          'To avoid paying taxes'
+        ],
+        answer: 'To save enough money to live comfortably after retirement'
+      },
+      {
+        type: 'fill-in-the-blank',
+        question: 'A common retirement account in the US is called a ________.',
+        answer: '401(k)'
+      }
+    ]
+  },
+  {
+    lessonId: 'mod7-les2',
+    lessonTitle: 'Social Security and Pensions',
+    questions: [
+      {
+        type: 'multiple-choice',
+        question: 'Social Security benefits are funded by:',
+        options: [
+          'Income taxes',
+          'Payroll taxes',
+          'Sales taxes',
+          'Property taxes'
+        ],
+        answer: 'Payroll taxes'
+      },
+      {
+        type: 'fill-in-the-blank',
+        question: 'A pension plan provides a fixed ________ after retirement.',
+        answer: 'income'
+      }
+    ]
+  },
+  {
+    lessonId: 'mod7-les3',
+    lessonTitle: 'Investment Options for Retirement',
+    questions: [
+      {
+        type: 'multiple-choice',
+        question: 'Which of the following is generally considered a low-risk retirement investment?',
+        options: ['Stocks', 'Bonds', 'Cryptocurrency', 'Commodities'],
+        answer: 'Bonds'
+      },
+      {
+        type: 'fill-in-the-blank',
+        question: 'Diversifying your retirement portfolio helps reduce ________.',
+        answer: 'risk'
+      }
+    ]
+  },
+  {
+    lessonId: 'mod7-les4',
+    lessonTitle: 'Tax-Advantaged Accounts',
+    questions: [
+      {
+        type: 'multiple-choice',
+        question: 'Which account offers tax-free withdrawals after retirement?',
+        options: ['Traditional IRA', 'Roth IRA', '401(k)', 'Savings Account'],
+        answer: 'Roth IRA'
+      },
+      {
+        type: 'fill-in-the-blank',
+        question: 'Contributions to a Traditional IRA are often ________ deductible.',
+        answer: 'tax'
+      }
+    ]
+  },
+  {
+    lessonId: 'mod7-les5',
+    lessonTitle: 'Calculating Retirement Needs',
+    questions: [
+      {
+        type: 'multiple-choice',
+        question: 'A common rule of thumb is to have how many times your annual income saved by retirement?',
+        options: ['5 times', '10 times', '15 times', '20 times'],
+        answer: '15 times'
+      },
+      {
+        type: 'fill-in-the-blank',
+        question: 'The number of years you expect to spend in retirement is called your retirement ________.',
+        answer: 'horizon'
+      }
+    ]
+  },
+  {
+    lessonId: 'mod7-les6',
+    lessonTitle: 'Withdrawal Strategies',
+    questions: [
+      {
+        type: 'multiple-choice',
+        question: 'The 4% rule suggests withdrawing what percent of your retirement savings annually?',
+        options: ['3%', '4%', '5%', '6%'],
+        answer: '4%'
+      },
+      {
+        type: 'fill-in-the-blank',
+        question: 'Withdrawing too much too soon can lead to ________ your savings.',
+        answer: 'depleting'
+      }
+    ]
+  },
+  {
+    lessonId: 'mod7-les7',
+    lessonTitle: 'Common Retirement Planning Mistakes',
+    questions: [
+      {
+        type: 'multiple-choice',
+        question: 'Which is a common retirement planning mistake?',
+        options: [
+          'Starting to save early',
+          'Ignoring inflation',
+          'Diversifying investments',
+          'Rebalancing portfolio regularly'
+        ],
+        answer: 'Ignoring inflation'
+      },
+      {
+        type: 'fill-in-the-blank',
+        question: 'Failing to plan for healthcare costs can cause ________ in retirement.',
+        answer: 'financial strain'
+      }
+    ]
+  }
+];
+
+// Module 7 Test Questions (Comprehensive)
+const module7Test = {
+  moduleId: 'mod7',
+  moduleTitle: 'Retirement Planning - Test',
+  questions: [
+    {
+      type: 'multiple-choice',
+      question: 'The main purpose of retirement planning is to:',
+      options: [
+        'Stop working immediately',
+        'Ensure financial security after retirement',
+        'Avoid investing',
+        'Pay fewer taxes'
+      ],
+      answer: 'Ensure financial security after retirement'
+    },
+    {
+      type: 'multiple-choice',
+      question: 'Social Security benefits are funded through:',
+      options: ['Income taxes', 'Payroll taxes', 'Sales taxes', 'Property taxes'],
+      answer: 'Payroll taxes'
+    },
+    {
+      type: 'fill-in-the-blank',
+      question: 'A pension plan provides fixed ________ after retirement.',
+      answer: 'income'
+    },
+    {
+      type: 'multiple-choice',
+      question: 'Which investment is generally safer for retirement portfolios?',
+      options: ['Stocks', 'Bonds', 'Cryptocurrency', 'Real Estate'],
+      answer: 'Bonds'
+    },
+    {
+      type: 'multiple-choice',
+      question: 'Which account offers tax-free withdrawals?',
+      options: ['Traditional IRA', 'Roth IRA', '401(k)', 'Savings Account'],
+      answer: 'Roth IRA'
+    },
+    {
+      type: 'fill-in-the-blank',
+      question: 'You should have about ________ times your annual income saved for retirement.',
+      answer: '15'
+    },
+    {
+      type: 'multiple-choice',
+      question: 'The 4% rule refers to withdrawing:',
+      options: ['3%', '4%', '5%', '6%'],
+      answer: '4%'
+    },
+    {
+      type: 'multiple-choice',
+      question: 'Ignoring ________ can cause financial strain during retirement.',
+      options: ['inflation', 'investment', 'taxes', 'diversification'],
+      answer: 'inflation'
+    }
+  ]
+}; 
